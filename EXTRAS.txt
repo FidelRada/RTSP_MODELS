@@ -1,0 +1,23 @@
+# EXTRAS.txt
+
+# Dependencias del sistema recomendadas (Ubuntu/Debian):
+sudo apt-get update
+sudo apt-get install -y build-essential cmake libopenblas-dev liblapack-dev libx11-dev libgtk-3-dev libboost-python-dev python3-dev
+
+# Si tienes problemas con dlib o face_recognition, instala wheel:
+pip install wheel
+
+# Instalar modelos de face_recognition si no se instalan automáticamente:
+pip install git+https://github.com/ageitgey/face_recognition_models
+
+# Para ejecutar el servidor:
+source 00/bin/activate
+python main.py
+
+# Para probar el endpoint de streaming con reconocimiento facial:
+curl -X POST http://localhost:8080/start_stream_face \
+  -H "Content-Type: application/json" \
+  -d '{"rtsp_url": "rtsp://localhost:8554/videoRTSP", "folder_name": "mi_carpeta"}'
+
+# El stream HLS estará disponible en:
+# http://localhost:8080/mi_carpeta/stream.m3u8 
