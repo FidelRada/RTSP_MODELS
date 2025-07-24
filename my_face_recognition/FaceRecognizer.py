@@ -4,7 +4,7 @@ import numpy as np
 import face_recognition
 
 class FaceRecognizer:
-    def __init__(self, database_path="database", threshold=0.6, resize=4):
+    def __init__(self, database_path="my_face_recognition/database", threshold=0.6, resize=4):
         self.threshold = threshold
         self.database_path = database_path
         self.database = self._load_database(database_path)
@@ -83,7 +83,7 @@ class FaceRecognizer:
         # Actualizar base de datos en memoria
         self.database[user_name] = encoding
         
-        return {"status": "success", "message": f"Usuario {user_name} registrado"}
+        return {"status": "success", "message": f"{user_name} registrado"}
 
 # ----------------------------
 # Ejemplo de uso con video
